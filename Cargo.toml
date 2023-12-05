@@ -15,7 +15,7 @@ members = ["macros"]
 
 [dependencies]
 bevy_ecs_ldtk_macros = { version = "0.8.0", optional = true, path = "macros" }
-bevy_ecs_tilemap = { git = "https://github.com/divark/bevy_ecs_tilemap", branch = "0.12-fixes", default-features = false }
+bevy_ecs_tilemap = { git = "https://github.com/PraxTube/bevy_ecs_tilemap", branch = "0.12-fixes", default-features = false }
 bevy = { version = "0.12", default-features = false, features = ["bevy_sprite"] }
 derive-getters = "0.3.0"
 serde = { version = "1.0", features = ["derive"] }
