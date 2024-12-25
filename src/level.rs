@@ -154,6 +154,8 @@ fn insert_spatial_bundle_for_layer_tiles(
             let tile_entity = storage.get(&tile_pos);
 
             if let Some(tile_entity) = tile_entity {
+                // RANCIC: is it here?
+                info!("{}, {}", tile_pos.x, tile_pos.y);
                 let spatial_bundle = spatial_bundle_for_tiles(tile_pos.into(), grid_size);
 
                 commands.entity(tile_entity).insert(spatial_bundle);
@@ -479,6 +481,7 @@ pub fn spawn_level(
                     let layer_entity = commands.spawn_empty().id();
 
                     let tilemap_bundle = if layer_instance.layer_instance_type == Type::IntGrid {
+                        info!("oh no, tilecd");
                         // The current spawning of IntGrid layers doesn't allow using
                         // LayerBuilder::new_batch().
                         // So, the actual LayerBuilder usage diverges greatly here
@@ -657,6 +660,7 @@ pub fn spawn_level(
                         }
                     };
 
+                    info!("inserting this bundle shit");
                     insert_spatial_bundle_for_layer_tiles(
                         commands,
                         &tilemap_bundle.storage,
@@ -699,6 +703,7 @@ pub fn spawn_level(
                         -grid_tile_size_difference * tile_pivot_y,
                     );
 
+                    info!("z layer: {}", layer_z);
                     commands
                         .entity(layer_entity)
                         .insert(tilemap_bundle)

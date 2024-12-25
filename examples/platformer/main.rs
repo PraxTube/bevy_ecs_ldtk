@@ -56,5 +56,12 @@ fn main() {
         .register_ldtk_entity::<components::MobBundle>("Mob")
         .register_ldtk_entity::<components::ChestBundle>("Chest")
         .register_ldtk_entity::<components::PumpkinsBundle>("Pumpkins")
+        .add_systems(Update, debuggy)
         .run();
+}
+
+fn debuggy(q_ints: Query<&IntGridCell, Added<IntGridCell>>) {
+    for index in &q_ints {
+        info!("{}", index.value);
+    }
 }

@@ -128,6 +128,8 @@ pub struct Wall;
 #[derive(Clone, Debug, Default, Bundle, LdtkIntCell)]
 pub struct WallBundle {
     wall: Wall,
+    #[from_int_grid_cell]
+    index: IntGridCell,
 }
 
 #[derive(Copy, Clone, Eq, PartialEq, Debug, Default, Component)]
