@@ -16,7 +16,7 @@ fn main() {
         )
         .add_plugins(LdtkPlugin)
         .add_systems(Startup, setup)
-        .insert_resource(LevelSelection::index(0))
+        .insert_resource(LevelSelection::indices(1, 0))
         .run();
 }
 
@@ -25,7 +25,7 @@ fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
     camera.projection.scaling_mode = ScalingMode::FixedVertical(300.0);
     commands
         .spawn(camera)
-        .insert(Transform::from_xyz(50.0, 50.0, 0.0));
+        .insert(Transform::from_xyz(150.0, 150.0, 0.0));
 
     commands.spawn(LdtkWorldBundle {
         ldtk_handle: asset_server.load("my_project.ldtk"),
